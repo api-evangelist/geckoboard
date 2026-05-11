@@ -1,0 +1,67 @@
+aid: geckoboard
+name: Geckoboard
+description: >-
+  Geckoboard is a cloud dashboard service that lets teams build TV-ready,
+  real-time business dashboards from spreadsheets, databases, and 90+
+  pre-built integrations (Salesforce, HubSpot, Stripe, Zendesk, Google
+  Analytics, etc.). The Geckoboard Datasets API lets developers push their
+  own data into Geckoboard by defining a schema and appending or replacing
+  records, which can then power any dashboard visualization. The API is
+  HTTPS-only and authenticates with HTTP Basic auth using a Geckoboard API
+  key as the username.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Dashboards
+  - Data Visualization
+  - Business Intelligence
+  - KPI Tracking
+  - Real-Time Reporting
+  - TV Dashboards
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/geckoboard/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: geckoboard:datasets-api
+    name: Geckoboard Datasets API
+    description: >-
+      REST API for pushing custom data into Geckoboard for use on dashboards.
+      Supports creating datasets with typed schemas (number, money, percentage,
+      date, datetime, duration, string), appending records, and full data
+      replacement. Authentication uses HTTP Basic auth with a Geckoboard API
+      key as the username and an empty password.
+    humanURL: https://developer.geckoboard.com/
+    baseURL: https://api.geckoboard.com
+    tags:
+      - Dashboards
+      - Datasets
+      - Data Push
+      - HTTP Basic Auth
+    properties:
+      - type: Documentation
+        url: https://developer.geckoboard.com/
+      - type: Authentication
+        url: https://developer.geckoboard.com/#authentication
+      - type: Custom Widgets
+        url: https://developer-custom.geckoboard.com/
+      - type: API Key Help
+        url: https://support.geckoboard.com/en/articles/6055693-find-your-geckoboard-api-key
+
+common:
+  - type: Website
+    url: https://www.geckoboard.com
+  - type: Documentation
+    url: https://developer.geckoboard.com/
+  - type: Pricing
+    url: https://www.geckoboard.com/pricing/
+  - type: Sign Up
+    url: https://app.geckoboard.com/signup
+  - type: Support
+    url: https://support.geckoboard.com
+  - type: Status
+    url: https://status.geckoboard.com
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
