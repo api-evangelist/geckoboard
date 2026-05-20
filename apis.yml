@@ -50,6 +50,10 @@ apis:
         url: https://support.geckoboard.com/en/articles/6055693-find-your-geckoboard-api-key
 
 common:
+  - type: GitHubOrganization
+    url: https://github.com/geckoboard
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/geckoboard
   - type: Website
     url: https://www.geckoboard.com
   - type: Documentation
