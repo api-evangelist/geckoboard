@@ -1,0 +1,203 @@
+openapi: 3.1.0
+info:
+  title: Geckoboard Datasets API
+  description: |
+    REST API for pushing custom data into Geckoboard for use on dashboards.
+    Supports creating datasets with typed schemas, appending records,
+    and full data replacement. Authentication uses HTTP Basic auth with a
+    Geckoboard API key as the username and an empty password.
+  version: "1.0.0"
+  contact:
+    name: Geckoboard Developer Documentation
+    url: https://developer.geckoboard.com/
+servers:
+  - url: https://api.geckoboard.com
+    description: Production
+security:
+  - basicAuth: []
+tags:
+  - name: Health
+    description: API key verification
+  - name: Datasets
+    description: Manage dataset schemas and records
+paths:
+  /:
+    get:
+      tags: [Health]
+      summary: Ping the API
+      description: Verify that the supplied API key is valid.
+      operationId: ping
+      responses:
+        '200':
+          description: API key is valid
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /datasets/{id}:
+    parameters:
+      - $ref: '#/components/parameters/DatasetId'
+    put:
+      tags: [Datasets]
+      summary: Find or create a dataset
+      description: Creates a dataset with the supplied schema, or returns the existing dataset if it already exists.
+      operationId: findOrCreateDataset
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatasetSchema'
+      responses:
+        '200':
+          description: Dataset created or found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetSchema'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+    delete:
+      tags: [Datasets]
+      summary: Delete a dataset
+      operationId: deleteDataset
+      responses:
+        '200':
+          description: Dataset deleted
+          content:
+            application/json:
+              schema:
+                type: object
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /datasets/{id}/data:
+    parameters:
+      - $ref: '#/components/parameters/DatasetId'
+    post:
+      tags: [Datasets]
+      summary: Append data to a dataset
+      description: Appends up to 500 records to the dataset, merging with existing rows.
+      operationId: appendData
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataPayload'
+      responses:
+        '200':
+          description: Data appended
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+    put:
+      tags: [Datasets]
+      summary: Replace all dataset data
+      description: Deletes all existing data in the dataset and writes the new records.
+      operationId: replaceData
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataPayload'
+      responses:
+        '200':
+          description: Data replaced
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic with the Geckoboard API key as the username and empty password.
+  parameters:
+    DatasetId:
+      name: id
+      in: path
+      required: true
+      description: Identifier of the dataset
+      schema:
+        type: string
+  schemas:
+    DatasetSchema:
+      type: object
+      properties:
+        id:
+          type: string
+        fields:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Field'
+        unique_by:
+          type: array
+          items:
+            type: string
+    Field:
+      type: object
+      required: [type, name]
+      properties:
+        type:
+          type: string
+          enum: [string, number, date, datetime, money, percentage, duration]
+        name:
+          type: string
+        optional:
+          type: boolean
+          default: false
+        currency_code:
+          type: string
+          description: ISO 4217 currency code, required for money fields
+    DataPayload:
+      type: object
+      required: [data]
+      properties:
+        data:
+          type: array
+          maxItems: 500
+          items:
+            type: object
+            additionalProperties: true
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ValidationError:
+      description: Request validation failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
