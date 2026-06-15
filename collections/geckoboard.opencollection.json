@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Geckoboard Datasets API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ping the API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.geckoboard.com/"
+          },
+          "docs": "Verify that the supplied API key is valid."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Datasets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find or create a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.geckoboard.com/datasets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the dataset"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a dataset with the supplied schema, or returns the existing dataset if it already exists."
+        },
+        {
+          "info": {
+            "name": "Delete a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.geckoboard.com/datasets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the dataset"
+              }
+            ]
+          },
+          "docs": "Delete a dataset"
+        },
+        {
+          "info": {
+            "name": "Append data to a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.geckoboard.com/datasets/:id/data",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the dataset"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Appends up to 500 records to the dataset, merging with existing rows."
+        },
+        {
+          "info": {
+            "name": "Replace all dataset data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.geckoboard.com/datasets/:id/data",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the dataset"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes all existing data in the dataset and writes the new records."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
