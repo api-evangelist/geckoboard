@@ -60,7 +60,7 @@ common:
     url: https://developer.geckoboard.com/
   - type: Pricing
     url: https://www.geckoboard.com/pricing/
-  - type: SignUp
+  - type: Signup
     url: https://app.geckoboard.com/signup
   - type: Support
     url: https://support.geckoboard.com
