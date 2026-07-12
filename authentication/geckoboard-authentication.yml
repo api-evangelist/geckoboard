@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/geckoboard-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic with the Geckoboard API key as the username and empty password.
+  sources:
+  - openapi/geckoboard-openapi.yml

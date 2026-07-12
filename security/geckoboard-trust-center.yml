@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://support.geckoboard.com/en/articles/6055694-how-geckoboard-protects-your-data
+url: https://support.geckoboard.com/en/articles/6055694-how-geckoboard-protects-your-data
+certifications:
+- PCI DSS
+- GDPR
+evidence:
+- source: https://support.geckoboard.com/en/articles/6055694-how-geckoboard-protects-your-data
+  keywords:
+  - pci dss
+  - gdpr
