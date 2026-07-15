@@ -50,6 +50,8 @@ apis:
         url: https://support.geckoboard.com/en/articles/6055693-find-your-geckoboard-api-key
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/geckoboard-agentic-access.yml
   - type: TrustCenter
     url: security/geckoboard-trust-center.yml
   - type: VulnerabilityDisclosure
