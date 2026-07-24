@@ -1,0 +1,63 @@
+openapi: 3.1.0
+info:
+  title: Geckoboard Datasets Health API
+  description: 'REST API for pushing custom data into Geckoboard for use on dashboards.
+
+    Supports creating datasets with typed schemas, appending records,
+
+    and full data replacement. Authentication uses HTTP Basic auth with a
+
+    Geckoboard API key as the username and an empty password.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Geckoboard Developer Documentation
+    url: https://developer.geckoboard.com/
+servers:
+- url: https://api.geckoboard.com
+  description: Production
+security:
+- basicAuth: []
+tags:
+- name: Health
+  description: API key verification
+paths:
+  /:
+    get:
+      tags:
+      - Health
+      summary: Ping the API
+      description: Verify that the supplied API key is valid.
+      operationId: ping
+      responses:
+        '200':
+          description: API key is valid
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic with the Geckoboard API key as the username and empty password.
