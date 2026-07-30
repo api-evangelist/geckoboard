@@ -10,7 +10,19 @@ description: >-
   HTTPS-only and authenticates with HTTP Basic auth using a Geckoboard API
   key as the username.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/geckoboard.png
 tags:
   - Dashboards
   - Data Visualization
@@ -24,31 +36,49 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: geckoboard:datasets-api
-    name: Geckoboard Datasets API
-    description: >-
-      REST API for pushing custom data into Geckoboard for use on dashboards.
-      Supports creating datasets with typed schemas (number, money, percentage,
-      date, datetime, duration, string), appending records, and full data
-      replacement. Authentication uses HTTP Basic auth with a Geckoboard API
-      key as the username and an empty password.
-    humanURL: https://developer.geckoboard.com/
-    baseURL: https://api.geckoboard.com
-    tags:
-      - Dashboards
-      - Datasets
-      - Data Push
-      - HTTP Basic Auth
-    properties:
-      - type: Documentation
-        url: https://developer.geckoboard.com/
-      - type: Authentication
-        url: https://developer.geckoboard.com/#authentication
-      - type: Custom Widgets
-        url: https://developer-custom.geckoboard.com/
-      - type: API Key Help
-        url: https://support.geckoboard.com/en/articles/6055693-find-your-geckoboard-api-key
-
+- aid: geckoboard:datasets-api
+  name: Geckoboard Datasets API
+  description: >-
+    REST API for pushing custom data into Geckoboard for use on dashboards. Supports creating datasets
+    with typed schemas (number, money, percentage, date, datetime, duration, string), appending records,
+    and full data replacement. Authentication uses HTTP Basic auth with a Geckoboard API key as the username
+    and an empty password.
+  humanURL: https://developer.geckoboard.com/
+  baseURL: https://api.geckoboard.com
+  tags:
+  - Dashboards
+  - Datasets
+  - Data Push
+  - HTTP Basic Auth
+  properties:
+  - type: Documentation
+    url: https://developer.geckoboard.com/
+  - type: Authentication
+    url: https://developer.geckoboard.com/#authentication
+  - type: Custom Widgets
+    url: https://developer-custom.geckoboard.com/
+  - type: API Key Help
+    url: https://support.geckoboard.com/en/articles/6055693-find-your-geckoboard-api-key
+- aid: geckoboard:geckoboard-datasets-api
+  name: Geckoboard Datasets API
+  description: Manage dataset schemas and records
+  humanURL: https://developer.geckoboard.com/
+  baseURL: https://api.geckoboard.com
+  tags:
+  - Datasets
+  properties:
+  - type: OpenAPI
+    url: openapi/geckoboard-datasets-api-openapi.yml
+- aid: geckoboard:geckoboard-health-api
+  name: Geckoboard Health API
+  description: API key verification
+  humanURL: https://developer.geckoboard.com/
+  baseURL: https://api.geckoboard.com
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/geckoboard-health-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/geckoboard-agentic-access.yml
