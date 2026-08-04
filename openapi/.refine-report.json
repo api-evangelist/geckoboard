@@ -1,0 +1,16 @@
+{
+  "provider": "geckoboard",
+  "sources": [
+    "geckoboard-datasets-api-openapi.yml",
+    "geckoboard-health-api-openapi.yml"
+  ],
+  "outputs": [
+    "geckoboard-datasets-api-openapi.yml",
+    "geckoboard-health-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
