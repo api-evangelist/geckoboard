@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Geckoboard Datasets Health API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ping the API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.geckoboard.com/"
+          },
+          "docs": "Verify that the supplied API key is valid."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
