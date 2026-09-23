@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Geckoboard Datasets Health API
   description: 'REST API for pushing custom data into Geckoboard for use on dashboards.
@@ -7,9 +7,7 @@ info:
 
     and full data replacement. Authentication uses HTTP Basic auth with a
 
-    Geckoboard API key as the username and an empty password.
-
-    '
+    Geckoboard API key as the username and an empty password.'
   version: 1.0.0
   contact:
     name: Geckoboard Developer Documentation
