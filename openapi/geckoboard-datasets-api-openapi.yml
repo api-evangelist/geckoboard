@@ -112,6 +112,17 @@ paths:
           $ref: '#/components/responses/ValidationError'
 components:
   schemas:
+    DataPayload:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          maxItems: 500
+          items:
+            type: object
+            additionalProperties: true
     Field:
       type: object
       required:
@@ -136,17 +147,14 @@ components:
         currency_code:
           type: string
           description: ISO 4217 currency code, required for money fields
-    DataPayload:
+    Error:
       type: object
-      required:
-      - data
       properties:
-        data:
-          type: array
-          maxItems: 500
-          items:
-            type: object
-            additionalProperties: true
+        error:
+          type: object
+          properties:
+            message:
+              type: string
     DatasetSchema:
       type: object
       properties:
@@ -160,14 +168,6 @@ components:
           type: array
           items:
             type: string
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
   responses:
     NotFound:
       description: Resource not found
