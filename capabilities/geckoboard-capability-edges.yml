@@ -1,0 +1,25 @@
+slug: geckoboard
+provider: Geckoboard
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Datasets
+  spec_file: geckoboard-datasets-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.8
+  evidence: '''REST API for pushing custom data into Geckoboard for use on dashboards. Supports creating
+    datasets with typed schemas, appending records, and full data replacement.'''
+  reason: The dataset operations feed business dashboards, which is BI/reporting delivery. Sub-capability
+    is Analytics & BI Management; some ambiguity with data architecture/ingestion plumbing.

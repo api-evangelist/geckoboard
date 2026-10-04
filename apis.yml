@@ -93,6 +93,9 @@ apis:
   - type: OpenAPI
     url: openapi/geckoboard-health-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/geckoboard-capability-edges.yml
+    name: Geckoboard Business Capability Map
   - type: AgenticAccess
     url: agentic-access/geckoboard-agentic-access.yml
   - type: TrustCenter
