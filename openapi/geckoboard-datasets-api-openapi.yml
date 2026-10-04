@@ -111,20 +111,37 @@ paths:
         '422':
           $ref: '#/components/responses/ValidationError'
 components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ValidationError:
+      description: Request validation failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    DatasetSchema:
+    DataPayload:
       type: object
+      required:
+      - data
       properties:
-        id:
-          type: string
-        fields:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Field'
-        unique_by:
+        data:
           type: array
+          maxItems: 500
           items:
-            type: string
+            type: object
+            additionalProperties: true
     Field:
       type: object
       required:
@@ -157,36 +174,19 @@ components:
           properties:
             message:
               type: string
-    DataPayload:
+    DatasetSchema:
       type: object
-      required:
-      - data
       properties:
-        data:
+        id:
+          type: string
+        fields:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Field'
+        unique_by:
           type: array
-          maxItems: 500
           items:
-            type: object
-            additionalProperties: true
-  responses:
-    Unauthorized:
-      description: Missing or invalid API key
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    ValidationError:
-      description: Request validation failed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+            type: string
   parameters:
     DatasetId:
       name: id
