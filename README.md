@@ -1,4 +1,4 @@
-# Geckoboard (geckoboard)
+# Geckoboard
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,63 +66,106 @@
 
 Geckoboard is a cloud dashboard service that lets teams build TV-ready, real-time business dashboards from spreadsheets, databases, and 90+ pre-built integrations (Salesforce, HubSpot, Stripe, Zendesk, Google Analytics, etc.). The Geckoboard Datasets API lets developers push their own data into Geckoboard by defining a schema and appending or replacing records, which can then power any dashboard visualization. The API is HTTPS-only and authenticates with HTTP Basic auth using a Geckoboard API key as the username.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/geckoboard/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/geckoboard/refs/heads/main/apis.yml)
+**Areas:** Dashboards · Data Visualization · Business Intelligence · KPI Tracking · Real-Time Reporting · TV Dashboards
 
-## Scope
+## Geckoboard on APIs.io
 
-- **Type:** Index
+Everything profiled for Geckoboard is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/geckoboard/](https://apis.io/providers/geckoboard/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Dashboards
-- Data Visualization
-- Business Intelligence
-- KPI Tracking
-- Real-Time Reporting
-- TV Dashboards
+- [Geckoboard Datasets API](https://apis.io/apis/geckoboard/datasets-api/) — REST API for pushing custom data into Geckoboard for use on dashboards. Supports creating datasets with typed schemas (number, money, percentage, date,…
+- [Geckoboard Datasets API](https://apis.io/apis/geckoboard/geckoboard-datasets-api/) — Manage dataset schemas and records
+- [Geckoboard Health API](https://apis.io/apis/geckoboard/geckoboard-health-api/) — API key verification
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-11
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Geckoboard Datasets API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-REST API for pushing custom data into Geckoboard for use on dashboards. Supports creating datasets with typed schemas (number, money, percentage, date, datetime, duration, string), appending records, and full data replacement. Authentication uses HTTP Basic auth with a Geckoboard API key as the username and an empty password.
+- [Geckoboard Agentic Access](https://apis.io/agentic-access/geckoboard/geckoboard-agentic-access/)
 
-- **Human URL:** [https://developer.geckoboard.com/](https://developer.geckoboard.com/)
-- **Base URL:** `https://api.geckoboard.com`
+#### Collections (3)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Dashboards
-- Datasets
-- Data Push
-- HTTP Basic Auth
+- [Geckoboard Datasets API](https://apis.io/collections/geckoboard/open-geckoboard/)
+- [Geckoboard Datasets API](https://apis.io/collections/geckoboard/open-geckoboard-datasets-api/)
+- [Geckoboard Datasets Health API](https://apis.io/collections/geckoboard/open-geckoboard-health-api/)
 
-#### Properties
+#### Security (4)
 
-- [Documentation](https://developer.geckoboard.com/)
-- [Authentication](https://developer.geckoboard.com/#authentication)
-- [Custom  Widgets](https://developer-custom.geckoboard.com/)
-- [A P I  Key  Help](https://support.geckoboard.com/en/articles/6055693-find-your-geckoboard-api-key)
-- [Postman Collection](collections/geckoboard.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/geckoboard.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Geckoboard Authentication](https://apis.io/security/geckoboard/geckoboard-authentication/)
+- [Geckoboard Domain Security](https://apis.io/security/geckoboard/geckoboard-domain-security/)
+- [Geckoboard Trust Center](https://apis.io/security/geckoboard/geckoboard-trust-center/)
+- [Geckoboard Vulnerability Disclosure](https://apis.io/security/geckoboard/geckoboard-vulnerability-disclosure/)
 
-- [GitHub Organization](https://github.com/geckoboard)
-- [LinkedIn](https://www.linkedin.com/company/geckoboard)
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.geckoboard.com)
 - [Documentation](https://developer.geckoboard.com/)
 - [Pricing](https://www.geckoboard.com/pricing/)
-- [Sign Up](https://app.geckoboard.com/signup)
 - [Support](https://support.geckoboard.com)
-- [Status Page](https://status.geckoboard.com)
+- [Blog](https://www.geckoboard.com/blog/rss/)
+- [GitHub](https://github.com/geckoboard)
+- [Status](https://status.geckoboard.com)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 32.6** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 49.6 |
+| Contract governance | 0.0 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 22.6 |
+| Access clarity | 31.6 |
+
+**Agent readiness 17.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/geckoboard/](https://apis.io/providers/geckoboard/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Geckoboard: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/geckoboard/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
